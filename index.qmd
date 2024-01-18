@@ -1,0 +1,43 @@
+---
+title: "Otak-otak Hunters"
+author: "KING SALMAN"
+format: html
+editor: visual
+---
+
+## We love Otak-Otak
+
+```{r}
+library("readxl")
+dat<-read_excel("C:/Users/sulta/OneDrive/Documents/Metodologi Penelitian Kelompok/japan polosan.xlsx")
+head(dat)
+library(readxl)
+reg1<-lm(y~x+s, data=dat)
+dat$m<-resid(reg1)
+plot(dat$x,dat$m,xlab="Inflasi",ylab="error")
+abline(h=0) #membuat garis horizontal di y=0
+```
+Plot pengaruh terhadap inflasi
+
+```{r}
+library(readxl)
+dat$m<-resid(reg1)
+plot(dat$s,dat$m,xlab="Pengangguran",ylab="error")
+abline(h=0)
+```
+Plot pengaruh terhadap Pengangguran
+
+```{r}
+library(readxl)
+dat$m<-resid(reg1)
+plot(dat$y,dat$m,xlab="PDB",ylab="error")
+abline(h=0)
+```
+
+```{r}
+library("readxl")
+dat<-read_excel("C:/Users/sulta/OneDrive/Documents/Metodologi Penelitian Kelompok/japan polosan.xlsx")
+library(readxl)
+reg1<-lm(y~x+s, data=dat)
+summary(reg1)
+```
